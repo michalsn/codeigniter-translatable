@@ -246,15 +246,15 @@ trait HasTranslations
 
         $this
             ->groupEnd()
-            ->whereIn($this->translatableModel->getTable() . '.locale', $locales)
+            ->whereIn($this->db->prefixTable($this->translatableModel->getTable()) . '.locale', $locales)
             ->select('DISTINCT ' . $this->table . '.*', false)
             ->join(
-                $this->translatableModel->getTable(),
+                $this->db->prefixTable($this->translatableModel->getTable()),
                 sprintf(
                     '%s.%s = %s.%s',
-                    $this->translatableModel->getTable(),
+                    $this->db->prefixTable($this->translatableModel->getTable()),
                     $this->buildForeignKeyField(),
-                    $this->table,
+                    $this->db->prefixTable($this->table),
                     $this->primaryKey
                 )
             );

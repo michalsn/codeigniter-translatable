@@ -7,8 +7,6 @@ namespace Tests;
 use CodeIgniter\Config\Factories;
 use CodeIgniter\Test\CIUnitTestCase;
 use CodeIgniter\Test\DatabaseTestTrait;
-use Locale;
-use Michalsn\CodeIgniterTranslatable\Config\Translatable;
 use Michalsn\CodeIgniterTranslatable\Exceptions\TranslatableException;
 use Tests\Support\Database\Seeds\SeedTests;
 use Tests\Support\Models\ArticleModel;
@@ -28,12 +26,12 @@ final class EntityTest extends CIUnitTestCase
     {
         parent::setUp();
 
-        $config          = config('App');
+        $config                   = config('App');
         $config->supportedLocales = ['en', 'pl'];
         Factories::injectMock('config', 'App', $config);
     }
 
-    public function testTranslation()
+    public function testTranslation(): void
     {
         $result = (new ArticleModel())->find(1);
 
@@ -41,7 +39,7 @@ final class EntityTest extends CIUnitTestCase
         $this->assertSame('Sample title 1', $result->translate()->title);
     }
 
-    public function testTranslationAll()
+    public function testTranslationAll(): void
     {
         $config                = config('App');
         $config->defaultLocale = 'pl';
@@ -56,7 +54,7 @@ final class EntityTest extends CIUnitTestCase
         $this->assertSame('Sample title 3', $results[2]->translate()->title);
     }
 
-    public function testTranslationWithAllTranslations()
+    public function testTranslationWithAllTranslations(): void
     {
         $result = (new ArticleModel())->withAllTranslations()->find(1);
 
@@ -66,7 +64,7 @@ final class EntityTest extends CIUnitTestCase
         $this->assertSame(['en', 'pl'], $result->getTranslationKeys());
     }
 
-    public function testHasTranslation()
+    public function testHasTranslation(): void
     {
         $result = (new ArticleModel())->find(1);
 
@@ -82,6 +80,6 @@ final class EntityTest extends CIUnitTestCase
 
         $result = (new ArticleModel())->find(1);
 
-        $result->translate('jp')->title;
+        $this->assertSame('error', $result->translate('jp')->title);
     }
 }

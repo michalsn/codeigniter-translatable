@@ -246,15 +246,15 @@ trait HasTranslations
 
         $this
             ->groupEnd()
-            ->whereIn($this->db->prefixTable($this->translatableModel->getTable()) . '.locale', $locales)
-            ->select('DISTINCT ' . $this->table . '.*', false)
+            ->whereIn($this->translatableModel->getTable() . '.locale', $locales)
+            ->select('DISTINCT ' . $this->db->prefixTable($this->table) . '.*', false)
             ->join(
-                $this->db->prefixTable($this->translatableModel->getTable()),
+                $this->translatableModel->getTable(),
                 sprintf(
                     '%s.%s = %s.%s',
-                    $this->db->prefixTable($this->translatableModel->getTable()),
+                    $this->translatableModel->getTable(),
                     $this->buildForeignKeyField(),
-                    $this->db->prefixTable($this->table),
+                    $this->table,
                     $this->primaryKey
                 )
             );
@@ -474,7 +474,7 @@ trait HasTranslations
     public function whereTranslation(string $field, int|string|null $value = null): self
     {
         $this->handleTranslationSearch();
-        $this->where($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value);
+        $this->where($this->translatableModel->getTable() . '.' . $field, $value);
 
         return $this;
     }
@@ -482,7 +482,7 @@ trait HasTranslations
     public function orWhereTranslation(string $field, int|string|null $value = null): self
     {
         $this->handleTranslationSearch();
-        $this->orWhere($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value);
+        $this->orWhere($this->translatableModel->getTable() . '.' . $field, $value);
 
         return $this;
     }
@@ -490,7 +490,7 @@ trait HasTranslations
     public function whereInTranslation(string $field, array $value): self
     {
         $this->handleTranslationSearch();
-        $this->whereIn($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value);
+        $this->whereIn($this->translatableModel->getTable() . '.' . $field, $value);
 
         return $this;
     }
@@ -498,7 +498,7 @@ trait HasTranslations
     public function whereNotInTranslation(string $field, array $value): self
     {
         $this->handleTranslationSearch();
-        $this->whereNotIn($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value);
+        $this->whereNotIn($this->translatableModel->getTable() . '.' . $field, $value);
 
         return $this;
     }
@@ -506,7 +506,7 @@ trait HasTranslations
     public function likeTranslation(string $field, string $value, string $type = 'both'): self
     {
         $this->handleTranslationSearch();
-        $this->like($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value, $type);
+        $this->like($this->translatableModel->getTable() . '.' . $field, $value, $type);
 
         return $this;
     }
@@ -514,7 +514,7 @@ trait HasTranslations
     public function orLikeTranslation(string $field, string $value, string $type = 'both'): self
     {
         $this->handleTranslationSearch();
-        $this->orLike($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value, $type);
+        $this->orLike($this->translatableModel->getTable() . '.' . $field, $value, $type);
 
         return $this;
     }
@@ -522,7 +522,7 @@ trait HasTranslations
     public function notLikeTranslation(string $field, string $value, string $type = 'both'): self
     {
         $this->handleTranslationSearch();
-        $this->notLike($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value, $type);
+        $this->notLike($this->translatableModel->getTable() . '.' . $field, $value, $type);
 
         return $this;
     }
@@ -530,7 +530,7 @@ trait HasTranslations
     public function orNotLikeTranslation(string $field, string $value, string $type = 'both'): self
     {
         $this->handleTranslationSearch();
-        $this->orNotLike($this->db->prefixTable($this->translatableModel->getTable()) . '.' . $field, $value, $type);
+        $this->orNotLike($this->translatableModel->getTable() . '.' . $field, $value, $type);
 
         return $this;
     }

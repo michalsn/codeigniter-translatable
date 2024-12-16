@@ -27,7 +27,7 @@ trait HasTranslations
      * Set up model events and initialize
      * translatable model related stuff.
      */
-    protected function initTranslations(BaseModel $translatableModel): void
+    protected function initTranslations(BaseModel|string $translatableModel): void
     {
         $this->beforeInsert[]  = 'translationsBeforeInsert';
         $this->afterInsert[]   = 'translationsAfterInsert';
@@ -37,7 +37,7 @@ trait HasTranslations
         $this->afterFind[]     = 'translationsAfterFind';
         $this->allowedFields[] = 'translations';
 
-        $this->translatableModel  = $translatableModel;
+        $this->translatableModel  = $translatableModel instanceof BaseModel ? $translatableModel : model($translatableModel);
         $this->translatableConfig = config('Translatable');
 
         $this->defaultLocale    = config('App')->defaultLocale;

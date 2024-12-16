@@ -158,7 +158,7 @@ trait HasTranslations
     /**
      * After insert event.
      */
-    protected function translationsAfterInsert(array $eventData): void
+    protected function translationsAfterInsert(array $eventData): array
     {
         if ($this->translations !== [] && $eventData['result']) {
             $foreignKeyField = $this->buildForeignKeyField();
@@ -172,6 +172,8 @@ trait HasTranslations
 
             $this->translations = [];
         }
+
+        return $eventData;
     }
 
     /**
@@ -192,7 +194,7 @@ trait HasTranslations
      *
      * @throws ReflectionException
      */
-    protected function translationsAfterUpdate(array $eventData): void
+    protected function translationsAfterUpdate(array $eventData): array
     {
         if ($this->translations !== [] && $eventData['result']) {
             $foreignKeyField = $this->buildForeignKeyField();
@@ -208,7 +210,7 @@ trait HasTranslations
                         ->where($where)
                         ->countAllResults();
 
-                    $translations = array_merge($translations, $where);
+                    $translations = array_merge((array) $translations, $where);
 
                     if ($found === 1) {
                         $this->translatableModel
@@ -222,6 +224,8 @@ trait HasTranslations
 
             $this->translations = [];
         }
+
+        return $eventData;
     }
 
     /**

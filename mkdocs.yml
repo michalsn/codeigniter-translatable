@@ -1,5 +1,5 @@
-site_name: CodeIgniter Nested Model
-site_description: Model relations for CodeIgniter 4 framework
+site_name: CodeIgniter Translatable
+site_description: An in-model content translations for CodeIgniter 4 framework.
 
 theme:
   name: material
@@ -24,14 +24,14 @@ theme:
         name: Switch to light mode
 
 extra:
-  homepage: https://michalsn.github.io/codeigniter-nested-model
+  homepage: https://michalsn.github.io/codeigniter-translatable
 
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/michalsn/codeigniter-nested-model
+      link: https://github.com/michalsn/codeigniter-translatable
       name: GitHub
 
-repo_url: https://github.com/michalsn/codeigniter-nested-model
+repo_url: https://github.com/michalsn/codeigniter-translatable
 edit_uri: edit/develop/docs/
 
 markdown_extensions:
@@ -52,3 +52,5 @@ nav:
   - Installation: installation.md
   - Configuration: configuration.md
   - Basic usage: basic_usage.md
+  - Model: model.md
+  - Entity: entity.md

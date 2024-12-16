@@ -12,3 +12,5 @@ An in-model content translations for CodeIgniter 4 framework
 * [Installation](installation.md)
 * [Configuration](configuration.md)
 * [Basic usage](basic_usage.md)
+* [Model](model.md)
+* [Entity](entity.md)

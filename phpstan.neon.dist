@@ -8,6 +8,7 @@ parameters:
 		- vendor/codeigniter4/framework/system/Test/bootstrap.php
 	excludePaths:
 		- src/Views/*
+		- src/Commands/Views/*
 	ignoreErrors:
 	    - '#Call to an undefined method CodeIgniter\\BaseModel::getTable\(\).#'
 	    - '#Call to an undefined method CodeIgniter\\BaseModel::where\(\).#'

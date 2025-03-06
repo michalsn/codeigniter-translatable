@@ -13,8 +13,8 @@ parameters:
 	    - '#Call to an undefined method CodeIgniter\\BaseModel::getTable\(\).#'
 	    - '#Call to an undefined method CodeIgniter\\BaseModel::where\(\).#'
 	    - '#Call to an undefined method CodeIgniter\\BaseModel::whereIn\(\).#'
-	    - '#Cannot access property \$[a-zA-Z0-9\\_]+ on array\<int\|string, float\|int\|object\|string\|null\>\|object.#'
-	    - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on array\<int\|string, float\|int\|object\|string\|null\>\|object.#'
+	    - '#Cannot access property \$[a-zA-Z0-9\\_]+ on array\<int\|string, bool\|float\|int\|object\|string\|null\>\|object.#'
+	    - '#Cannot call method [a-zA-Z0-9\\_]+\(\) on array\<int\|string, bool\|float\|int\|object\|string\|null\>\|object.#'
 	universalObjectCratesClasses:
 		- CodeIgniter\Entity
 		- CodeIgniter\Entity\Entity

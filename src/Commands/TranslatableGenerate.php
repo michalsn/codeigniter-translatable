@@ -61,31 +61,31 @@ class TranslatableGenerate extends BaseCommand
         $contents = str_replace(
             'use CodeIgniter\Model;',
             'use App\Entities\\' . $entity . ";\n" . 'use CodeIgniter\Model;',
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             'use CodeIgniter\Model;',
             'use CodeIgniter\Model;' . "\n" . 'use Michalsn\CodeIgniterTranslatable\Traits\HasTranslations;',
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             'protected $table',
             "use HasTranslations;\n\n\t" . 'protected $table',
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             "protected \$returnType       = 'array'",
             "protected \$returnType       = {$entity}::class",
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             'protected $useTimestamps = false;',
             'protected $useTimestamps = true;',
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
@@ -98,13 +98,13 @@ class TranslatableGenerate extends BaseCommand
                         $this->initTranslations();
                     }
                 EOT,
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             '$this->initTranslations();',
             '$this->initTranslations(' . $modelTranslation . '::class);',
-            $contents
+            $contents,
         );
 
         file_put_contents($file, $contents);
@@ -130,13 +130,13 @@ class TranslatableGenerate extends BaseCommand
         $contents = str_replace(
             "protected \$returnType       = 'array'",
             "protected \$returnType       = 'object'",
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             'protected $allowedFields    = [];',
             "protected \$allowedFields    = ['{$foreignKey}', 'locale'];",
-            $contents
+            $contents,
         );
 
         file_put_contents($file, $contents);
@@ -159,19 +159,19 @@ class TranslatableGenerate extends BaseCommand
         $contents = str_replace(
             'use CodeIgniter\Entity\Entity;',
             'use CodeIgniter\Entity\Entity;' . "\n" . 'use Michalsn\CodeIgniterTranslatable\Traits\TranslatableEntity;',
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             '{',
             "{\n\tuse TranslatableEntity;\n",
-            $contents
+            $contents,
         );
 
         $contents = str_replace(
             "protected \$dates   = ['created_at', 'updated_at', 'deleted_at'];",
             "protected \$dates   = ['created_at', 'updated_at'];",
-            $contents
+            $contents,
         );
 
         file_put_contents($file, $contents);

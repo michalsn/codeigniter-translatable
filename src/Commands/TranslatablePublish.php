@@ -41,7 +41,7 @@ class TranslatablePublish extends BaseCommand
                     'namespace Michalsn\\CodeIgniterTranslatable\\Config' => 'namespace Config',
                     'use CodeIgniter\\Config\\BaseConfig'                 => 'use Michalsn\\CodeIgniterTranslatable\Config\\Translatable as BaseTranslatable',
                     'class Translatable extends BaseConfig'               => 'class Translatable extends BaseTranslatable',
-                ]
+                ],
             );
         }
 

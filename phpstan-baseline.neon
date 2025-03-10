@@ -1,0 +1,25 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertInstanceOf\(\) with ''Tests\\\\Support\\\\Models\\\\ArticleModel'' and Tests\\Support\\Models\\ArticleModel will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: tests/ModelTest.php
+
+		-
+			message: '#^Parameter \#1 \$row of method CodeIgniter\\Model\:\:insert\(\) expects array\<int\|string, bool\|float\|int\|object\|string\|null\>\|object\|null, array\<string, array\<string, array\<string, string\>\>\|string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/ModelTest.php
+
+		-
+			message: '#^Parameter \#2 \$row of method CodeIgniter\\Model\:\:update\(\) expects array\<int\|string, bool\|float\|int\|object\|string\|null\>\|object\|null, array\<string, array\<string, array\<string, string\>\>\|string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/ModelTest.php
+
+		-
+			message: '#^Parameter \#1 \$row of method CodeIgniter\\Model\:\:insert\(\) expects array\<int\|string, bool\|float\|int\|object\|string\|null\>\|object\|null, array\<string, array\<string, array\<string, string\>\>\|string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/_support/Database/Seeds/SeedTests.php

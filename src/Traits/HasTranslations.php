@@ -259,8 +259,8 @@ trait HasTranslations
                     $this->translatableModel->getTable(),
                     $this->buildForeignKeyField(),
                     $this->table,
-                    $this->primaryKey
-                )
+                    $this->primaryKey,
+                ),
             );
 
         return $eventData;
@@ -463,7 +463,7 @@ trait HasTranslations
 
                 return $acc;
             },
-            []
+            [],
         );
     }
 

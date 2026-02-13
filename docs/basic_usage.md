@@ -42,6 +42,8 @@ The main model should use `HasTranslations` trait and then the `initialize()` me
 
 namespace App\Models;
 
+use Michalsn\CodeIgniterTranslatable\Traits\HasTranslations;
+
 // ...
 
 class ArticleModel extends Model
@@ -93,6 +95,8 @@ Using the entity is not required but it might be handy. We use it only for the m
 <?php
 
 namespace App\Entities;
+
+use Michalsn\CodeIgniterTranslatable\Traits\TranslatableEntity;
 
 // ...
 
